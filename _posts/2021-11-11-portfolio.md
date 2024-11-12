@@ -5,9 +5,8 @@ date: 2024-11-11 22:01:00 +0600
 categories: portfolio
 ---
 ## Mohammad Rukonuzzaman
-- **Email**: rukonuzzaman@iut-dhaka.edu
+- **Email**: rukonuzzaman+at+iut-dhaka.edu
 - **LinkedIn**: [linkedin.com/in/mrukonuzzaman](https://linkedin.com/in/mrukonuzzaman)
-- **Phone**: 01614353156
 
 ### Education
 - **Bachelor of Science in Computer Science & Engineering**
@@ -15,6 +14,8 @@ categories: portfolio
   - Jan 2017 - Mar 2021
 
 ### Experience
+- **System Engineer**, bKash Limited, Dhaka
+- April 2021 - April 2024
 - **Senior Platform and Integration Engineer**, bKash Limited, Dhaka
   - May 2024 – Present
   - Implemented DevOps practices for app deployment of self-hosted Kubernetes platform
@@ -29,4 +30,3 @@ categories: portfolio
 - **Languages**: Python, C++, JS, Java, SQL
 - **Frameworks and Libraries**: TensorFlow, FastAPI, Django, OpenCV, Scikit-learn, Seaborn
 - **Tools**: Kubernetes, Docker, Ansible, Terraform, Jenkins, Prometheus, Grafana
-

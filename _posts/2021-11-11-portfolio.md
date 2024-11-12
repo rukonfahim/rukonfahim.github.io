@@ -12,6 +12,7 @@ categories: portfolio
 - **Bachelor of Science in Computer Science & Engineering**
   - Islamic University of Technology, Gazipur, Bangladesh
   - Jan 2017 - Mar 2021
+  - **Courses**: [See list of courses offered](https://drive.google.com/file/d/1Bw6MCgwA0L6SMsb8ocG8QkXv19TzFGrq/view)
 
 ### Experience
 - **System Engineer**, bKash Limited, Dhaka

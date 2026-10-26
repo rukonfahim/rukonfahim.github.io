@@ -1,46 +1,534 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>PhD Candidate in Machine Learning - Personal Website</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-  <header>
-    <h1>PhD Candidate in Machine Learning</h1>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#publications">Publications</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mohammad Rukonuzzaman | Platform Engineer</title>
+    <meta
+      name="description"
+      content="Professional portfolio and profile for Mohammad Rukonuzzaman, a Platform Engineer focused on cloud infrastructure, DevOps, observability, and platform reliability."
+    />
+    <style>
+      :root {
+        --bg: #f4f7fb;
+        --panel: #ffffff;
+        --panel-alt: #edf4fa;
+        --primary: #122b46;
+        --primary-soft: #1c3d5f;
+        --accent: #1a8f86;
+        --accent-strong: #0f6b66;
+        --text: #1c2431;
+        --muted: #53657d;
+        --line: #dfe8f2;
+        --shadow: rgba(18, 43, 70, 0.08);
+      }
 
-  <section id="about">
-    <h2>About</h2>
-    <p>Insert a brief description of yourself and your research interests.</p>
-  </section>
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.7;
+        background: var(--bg);
+        color: var(--text);
+      }
+      a { color: inherit; }
+      .container {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+      header {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-soft) 100%);
+        color: #fff;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        box-shadow: 0 2px 12px rgba(15, 23, 42, 0.14);
+      }
+      .header-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+        padding: 18px 0;
+      }
+      .eyebrow, .section-tag {
+        margin: 0 0 8px;
+        font-size: 0.74rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #dfeeff;
+      }
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 3vw, 2.8rem);
+        line-height: 1.2;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px 22px;
+        margin: 0;
+        padding: 0;
+      }
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 0.96rem;
+        font-weight: 600;
+      }
+      nav a:hover { text-decoration: underline; }
 
-  <section id="research">
-    <h2>Research</h2>
-    <p>Insert a summary of your research projects and areas of expertise.</p>
-  </section>
+      .hero {
+        padding: 72px 0 54px;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 2fr) minmax(250px, 0.9fr);
+        gap: 32px;
+        align-items: center;
+      }
+      .hero h2 {
+        margin: 0 0 18px;
+        font-size: clamp(2.2rem, 3vw, 3.3rem);
+        line-height: 1.1;
+        color: var(--primary);
+      }
+      .hero p {
+        margin: 0 0 16px;
+        font-size: 1.04rem;
+        color: var(--text);
+      }
+      .button-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 26px;
+      }
+      .button {
+        display: inline-block;
+        padding: 12px 22px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: transform 0.2s ease;
+      }
+      .button:hover { transform: translateY(-1px); }
+      .button.primary {
+        background: var(--accent);
+        color: #fff;
+      }
+      .button.secondary {
+        background: transparent;
+        border: 2px solid var(--primary);
+        color: var(--primary);
+      }
+      .profile-card,
+      .card,
+      .contact-box,
+      .education-box,
+      .timeline-content {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        box-shadow: 0 6px 18px var(--shadow);
+      }
+      .profile-card {
+        padding: 28px 24px;
+      }
+      .profile-card h3 {
+        margin-top: 0;
+        margin-bottom: 14px;
+        color: var(--primary);
+        font-size: 1.5rem;
+      }
+      .profile-card ul {
+        margin: 0;
+        padding-left: 18px;
+      }
+      .profile-card li + li { margin-top: 10px; }
+      .content-section { padding: 64px 0; }
+      .alt-bg { background: var(--panel-alt); }
+      .content-section h2 {
+        margin: 0 0 24px;
+        font-size: clamp(1.9rem, 2vw, 2.6rem);
+        color: var(--primary);
+      }
+      .skills-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 12px;
+      }
+      .skills-grid span {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 9px 14px;
+        font-weight: 600;
+        color: var(--primary);
+      }
+      .timeline {
+        display: grid;
+        gap: 26px;
+      }
+      .timeline-item {
+        display: grid;
+        grid-template-columns: 18px 1fr;
+        gap: 20px;
+        align-items: start;
+      }
+      .timeline-dot {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: var(--accent);
+        margin-top: 14px;
+        box-shadow: 0 0 0 6px rgba(26, 143, 134, 0.12);
+      }
+      .timeline-content {
+        padding: 24px 22px;
+      }
+      .timeline-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 16px;
+        margin-bottom: 8px;
+      }
+      .timeline-header h3 {
+        margin: 0;
+        color: var(--primary);
+        font-size: 1.5rem;
+      }
+      .company {
+        color: var(--accent-strong);
+        font-weight: 700;
+      }
+      .period {
+        margin: 0 0 12px;
+        color: var(--muted);
+        font-weight: 700;
+      }
+      .timeline-content ul, .detail-list {
+        margin: 0;
+        padding-left: 20px;
+      }
+      .timeline-content li, .detail-list li {
+        margin-bottom: 8px;
+      }
+      .card-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 22px;
+      }
+      .card {
+        padding: 24px 22px;
+      }
+      .card h3 {
+        margin: 0 0 10px;
+        color: var(--primary);
+        font-size: 1.2rem;
+      }
+      .card p { margin: 0; }
+      .education-box {
+        padding: 26px 24px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        box-shadow: 0 6px 18px var(--shadow);
+      }
+      .education-box h3 {
+        margin: 0 0 8px;
+        color: var(--primary);
+        font-size: 1.5rem;
+      }
+      .meta {
+        margin: 0 0 8px;
+        color: var(--muted);
+        font-style: italic;
+      }
+      .contact-box { padding: 28px 24px; }
+      .contact-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 10px;
+      }
+      .contact-list a { color: var(--primary); }
+      footer {
+        background: #14243d;
+        color: #fff;
+        text-align: center;
+        padding: 18px 0;
+      }
+      @media (max-width: 760px) {
+        .header-inner {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        nav ul {
+          gap: 12px 18px;
+        }
+        .hero-grid { grid-template-columns: 1fr; }
+        .timeline-item { grid-template-columns: 1fr; }
+        .timeline-dot { display: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container header-inner">
+        <div>
+          <p class="eyebrow">Platform Engineering • Cloud Infrastructure • DevOps</p>
+          <h1>Mohammad Rukonuzzaman</h1>
+        </div>
+        <nav aria-label="Main navigation">
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-  <section id="publications">
-    <h2>Publications</h2>
-    <p>Insert a list of your publications with links to their respective sites.</p>
-  </section>
+    <main>
+      <section id="about" class="hero">
+        <div class="container hero-grid">
+          <div>
+            <p class="section-tag">Senior Platform Engineer</p>
+            <h2>Designing reliable, secure, and scalable cloud-native platforms.</h2>
+            <p>
+              I specialize in designing, automating, and managing scalable cloud and
+              cloud-native infrastructure. I have extensive experience in delivering
+              highly reliable, secure, and performance-optimized systems. Beyond technical
+              delivery, I lead and mentor teams, plan roadmaps, and manage business-aligned
+              technology initiatives with a strong focus on resilience, scale, and platform maturity.
+            </p>
+            <p>
+              My work spans Kubernetes, platform engineering, infrastructure automation,
+              observability, GitOps, CI/CD, infrastructure security, and production
+              reliability for large-scale distributed systems.
+            </p>
+            <div class="button-row">
+              <a class="button primary" href="#experience">View Experience</a>
+              <a class="button secondary" href="#contact">Contact Me</a>
+            </div>
+          </div>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Insert a contact form or your email address for interested parties to reach out to you.</p>
-  </section>
+          <aside class="profile-card">
+            <h3>Quick Profile</h3>
+            <ul>
+              <li><strong>Email:</strong> rukonuzzaman@iut-dhaka.edu</li>
+              <li><strong>Phone:</strong> +8801614353156</li>
+              <li><strong>Website:</strong> rukonfahim.github.io</li>
+              <li><strong>LinkedIn:</strong> Available on request</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
 
-  <footer>
-    <p>© 2023 Mohammad Rukonuzzaman</p>
-  </footer>
-</body>
+      <section id="skills" class="content-section alt-bg">
+        <div class="container">
+          <h2>Core Competencies</h2>
+          <div class="skills-grid">
+            <span>Kubernetes</span>
+            <span>Docker</span>
+            <span>Containerd</span>
+            <span>VMware vSphere</span>
+            <span>Nutanix</span>
+            <span>Terraform</span>
+            <span>Ansible</span>
+            <span>Helm</span>
+            <span>GitOps</span>
+            <span>Argo CD</span>
+            <span>Tekton</span>
+            <span>Jenkins</span>
+            <span>Prometheus</span>
+            <span>Grafana</span>
+            <span>Datadog</span>
+            <span>New Relic</span>
+            <span>OpenTelemetry</span>
+            <span>Jaeger</span>
+            <span>Kiali</span>
+            <span>Trivy</span>
+            <span>Snyk</span>
+            <span>Falco</span>
+            <span>eBPF</span>
+            <span>Python</span>
+            <span>C++</span>
+            <span>Java</span>
+            <span>JavaScript</span>
+            <span>SQL</span>
+            <span>RHEL</span>
+            <span>Linux</span>
+            <span>Jira</span>
+            <span>Confluence</span>
+            <span>Cloud Architecture</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="content-section">
+        <div class="container">
+          <h2>Professional Experience</h2>
+
+          <div class="timeline">
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <h3>Senior Platform Engineer</h3>
+                  <span class="company">bKash Limited</span>
+                </div>
+                <p class="period">May 2024 – Present</p>
+                <ul>
+                  <li>Drove incident management, production troubleshooting, and resolution across multi-environment platforms using Prometheus, Grafana, and New Relic.</li>
+                  <li>Led root cause analyses and post-mortems, embedding continuous improvement into team culture.</li>
+                  <li>Contributed to talent expansion through technical screening, onboarding, and mentoring initiatives.</li>
+                  <li>Collaborated with development, QA, and operations teams to optimize system stability and performance.</li>
+                  <li>Led and mentored engineers, guiding them through tools, practices, and processes while removing blockers.</li>
+                  <li>Authored and maintained technical documentation, SOPs, troubleshooting guides, DR playbooks, and platform configuration docs.</li>
+                  <li>Planned roadmap items focused on MTTR, MTBF, SLA, SLO, SLIs, and DORA metrics.</li>
+                  <li>Prepared production activity plans and change management procedures for rollout, rollback, and recovery.</li>
+                  <li>Proactively diagnosed and resolved application reliability issues through performance analysis and telemetry-driven insights.</li>
+                  <li>Conducted chaos engineering and resiliency testing to validate fault tolerance and recovery capabilities.</li>
+                  <li>Architected enterprise projects including Tyk API Gateway, Redis cluster, central SQL and NoSQL solutions, and Rancher cluster management.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <h3>System Engineer</h3>
+                  <span class="company">bKash Limited</span>
+                </div>
+                <p class="period">Apr 2021 – Apr 2024</p>
+                <ul>
+                  <li>Designed and deployed infrastructure automation using Terraform, Ansible, and Helm for repeatable and secure environment provisioning.</li>
+                  <li>Implemented centralized secret and configuration management for compliance and secure operations.</li>
+                  <li>Automated change and release management through GitOps and CI/CD pipelines, reducing deployment time and human error.</li>
+                  <li>Integrated security scanning and compliance automation using SonarQube, Trivy, and Snyk within CI/CD.</li>
+                  <li>Designed networking, load balancing, and API gateway architectures for scalable microservices.</li>
+                  <li>Managed workloads across virtualized and bare-metal infrastructure including VMware, Nutanix, and KubeVirt.</li>
+                  <li>Administered RHEL 7/8/9 systems and supported containerized production workloads at scale.</li>
+                  <li>Built and managed large-scale on-prem Kubernetes clusters, distributed storage, and search solutions such as Longhorn and Elasticsearch.</li>
+                  <li>Regularly reviewed workload efficiency and infrastructure cost distribution to improve utilization and ROI.</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="content-section alt-bg">
+        <div class="container">
+          <h2>Selected Projects &amp; Achievements</h2>
+          <div class="card-list">
+            <article class="card">
+              <h3>eBPF Performance Profiling</h3>
+              <p>Used eBPF to profile production applications, identify bottlenecks, and optimize system performance.</p>
+            </article>
+            <article class="card">
+              <h3>Predictive Failure Detection</h3>
+              <p>Built telemetry-driven predictive analysis to detect application failures for fee collection and event-streaming services.</p>
+            </article>
+            <article class="card">
+              <h3>Platform Hardening Playbooks</h3>
+              <p>Prepared system hardening playbooks aligned with security guidelines to reduce operational risk.</p>
+            </article>
+            <article class="card">
+              <h3>JVM Optimization</h3>
+              <p>Optimized JVM-based services to improve throughput up to 6x and reduce infrastructure costs for the app core login module.</p>
+            </article>
+            <article class="card">
+              <h3>IaC Platform Provisioning</h3>
+              <p>Prepared Infrastructure as Code for Kubernetes, Redis, RabbitMQ, and database workloads, reducing provisioning time by 80%.</p>
+            </article>
+            <article class="card">
+              <h3>GitOps &amp; CI/CD Modernization</h3>
+              <p>Implemented CI/CD pipelines and deployment strategies for more than 100 projects across the ecosystem.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <div class="container">
+          <h2>Research Projects</h2>
+          <ul class="detail-list">
+            <li>Analysis of early application fault detection through OpenTelemetry data analysis.</li>
+            <li>Research collaboration with a PhD candidate at UTSA benchmarking Kubernetes performance on ARM and edge-based devices.</li>
+            <li>Applied machine learning, federated learning, cloud computing, and distributed systems research.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="content-section alt-bg" id="certifications">
+        <div class="container">
+          <h2>Training &amp; Certifications</h2>
+          <ul class="detail-list">
+            <li>ITIL® Foundation Certificate in IT Service Management, ITIL v4 by Axelos, 2024</li>
+            <li>Terraform Challenges, Kode Kloud, 2024</li>
+            <li>TensorFlow 2 for Deep Learning Specialization, Coursera, 2021</li>
+            <li>Tyk Gateway Enterprise training, 2024</li>
+            <li>Nutanix Kubernetes Workshop, 2025</li>
+            <li>SUSE Rancher Cluster Management training, 2025</li>
+            <li>Deep Learning Specialization, Coursera, 2020</li>
+            <li>Duolingo English Test CEFR C1 (135), 2025</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <div class="container">
+          <h2>Education</h2>
+          <div class="education-box">
+            <h3>Bachelor of Science in Computer Science &amp; Engineering</h3>
+            <p class="meta">Islamic University of Technology, Gazipur, Bangladesh</p>
+            <p>Jan 2017 – Mar 2021 | Passed with First Class</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section alt-bg">
+        <div class="container">
+          <h2>Activities &amp; Interests</h2>
+          <ul class="detail-list">
+            <li>DevOps Hackathon Judge, IUT 11th National ICT Fest 2024</li>
+            <li>Brilliant Cloud DevOps Hackathon — Runner Up, 2023</li>
+            <li>Operations Executive (Robotics), IUT Computer Society</li>
+            <li>IUT Mars Rover involvement and logistics contribution for IUT ICT Fest events</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="contact" class="content-section">
+        <div class="container contact-box">
+          <h2>Contact</h2>
+          <ul class="contact-list">
+            <li><strong>Email:</strong> rukonuzzaman@iut-dhaka.edu</li>
+            <li><strong>Phone:</strong> +8801614353156</li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/rukonfahim">github.com/rukonfahim</a></li>
+            <li><strong>Website:</strong> <a href="https://rukonfahim.github.io">rukonfahim.github.io</a></li>
+            <li><strong>LinkedIn:</strong> Available on request</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>© 2025 Mohammad Rukonuzzaman</p>
+      </div>
+    </footer>
+  </body>
 </html>

@@ -1,0 +1,5 @@
+# No AI scraping or reuse requested
+
+This website's owner requests that automated systems, including AI crawlers, not scrape, index, ingest, or use this site's content for model training, retrieval, or other AI purposes.
+
+This file is a plain-language request, not a standardized access-control mechanism. For crawler directives, see `/robots.txt`. Compliance is voluntary; this file cannot prevent access by bots that ignore it.

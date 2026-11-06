@@ -2,9 +2,13 @@
 name: Deploy Jekyll with GitHub Pages dependencies preinstalled
 
 on:
-  # Runs on pushes targeting the default branch
+  # Build commits pushed to the default branch (including merged pull requests).
   push:
-    branches: ["jekyll"]
+    branches: ["main"]
+
+  # Build pull requests targeting the default branch.
+  pull_request:
+    branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -38,8 +42,9 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
-  # Deployment job
+  # Deployment job (only deploy after a push or manual run, not for pull requests).
   deploy:
+    if: github.event_name != 'pull_request'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
